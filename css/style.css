@@ -1,0 +1,34 @@
+* { /*RESETEO DE NAVEGADORES*/
+  margin: 0; /* Saca los márgenes que pone el navegador*/
+  padding: 0; /* Saca los rellenos por defecto */
+  box-sizing: border-box; /* Hace que los bordes no agranden tus cajas*/
+}
+
+:root{
+  --color-primario: #ff3131;
+  --color-secundario: #2B2B2B;
+  --color-terciario: #F1FAEE;
+  --color-neutral: #121212;
+  --fuente-titulo: "space grotesk", sans-serif;
+  --fuente-cuerpo:  "Manrope" , sans-serif;
+}
+
+html{
+  /* Al definir esto, le decimos al navegador: "A partir de ahora, 1rem = 10px" */
+    font-size: 62.5%;
+}
+
+body{
+  font-family: var(--fuente-cuerpo);
+  font-size: 1.6rem;
+  background-color: var(--color-neutral);
+  color: var(--color-terciario)
+}
+              /*Barra de navegacion*/
+.barra-superior {
+    background-color: var(--color-secundario);
+    display: flex;
+}
+
+
+
