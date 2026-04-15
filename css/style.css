@@ -6,12 +6,14 @@
 
 :root{
   --color-primario: #00F0FF;
+  --color-primario_deg: #00eeff9e;
   --color-secundario: #BCFF00;
-  --color-terciario: #FF00FF;
-  --color-neutral: #0D0D12;
-  --color-parrafo:rgb(77, 74, 74);
+  --color-terciario: #ff0000;
+  --color-fondo: #0D0D12;
+  --color-neutral: rgba(84, 84, 84, 0.312);
+  --color-parrafo:rgb(77, 74, 74); 
   --fuente-titulo: "space grotesk", sans-serif;
-  --fuente-cuerpo: "inter";
+  --fuente-cuerpo: "inter", sans-serif;
 }
 
 html{
@@ -22,17 +24,19 @@ html{
 body{
   font-family: var(--fuente-cuerpo);
   font-size: 1.6rem;
-  background-color: var(--color-neutral);
+  background-color: var(--color-fondo);
   color: white;
 }
               /*Barra de navegacion*/
 .barra-superior {
-    background-color: var(--color-neutral);
+    background-color: rgba(84, 84, 84, 0.12);
+    backdrop-filter: blur(20px); /* Sirve para agregar distintos efectos(en inspeccionar hay mas)*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid white;
     padding: 1.6rem;
+    position: sticky; /* deja mover el obejto hasta que el scroll llega a él, ahi se fija */
+    top: 0;
 }
 .boton-de-menu{
   color: var(--color-primario); /* Por ahora, luego sera un icono*/
@@ -54,7 +58,10 @@ body{
 
 .barra-superior__titulo{
   font-size: 2.4rem;
-  margin-right: auto;
+}
+
+.barra-superior__nav{
+  margin: 0 auto;
 }
 
 .barra-superior__lista{
@@ -62,14 +69,15 @@ body{
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-right: 50rem;
 }
 
 .barra-superior__enlace, .barra-superior__enlace:visited{
   font-size: 1.6rem;
+  font-family: var(--fuente-titulo);
+  text-transform: uppercase;    
   text-decoration: none;
-  color: var(--color-parrafo);
-  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  
 }
 
 .boton-de-carrito{
@@ -79,6 +87,23 @@ body{
   cursor: pointer;
   margin: 1rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* LANZAMINETO */
 .lanzamiento{
@@ -92,22 +117,80 @@ body{
 }
 
 .lanzamiento__contenedor{
-  display: flex;
-  max-width: 46rem;
+  max-width: 60rem;
   padding-top:  10rem;
   flex-direction: column;
 }
 
 .lanzamiento__anuncio{
   display: inline-block;
-  color: #0D0D12;
-  font-size: 1.5rem;
-  background-color: var(--color-secundario);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /*Margen con el texto principal*/
+  font-size: 1rem;
+  letter-spacing: -0.5px;/*ESPACIADO ENTRE LETRAS */
+  color: rgb(182 247 0);
+  font-weight: 700; /*Grosor de Letras */
+  text-transform: uppercase; /*MAYUSCULA*/
+  background-color: rgba(182, 247, 0, 0.12);
+  border: 1px rgb(181, 247, 0, 0.233) solid;
   border-radius:1rem;
-  padding: 0.4rem 1.2rem;
-  max-width: 16rem;
+  padding: 0.50rem 1rem; /*Espaciado entre el contenedor y el borde*/
 }
+
+.lanzamiento__titulo{
+  font-size: 7rem;
+  margin-bottom: 2rem;
+  font-family: var(--fuente-titulo);
+  text-transform: uppercase;
+  line-height: 7rem;
+  /* para que funcione deben estar los tres (-wekbit-, no es necesario solo es para navegadores antiguos)*/
+  background-image: linear-gradient(to bottom right,rgb(255, 255, 255), var(--color-primario_deg)); /* define el gradiente. Pero en lugar de aplicarlo como fondo del div, sera del texto */ 
+  -webkit-background-clip: text;
+  background-clip: text; /* recorte ese fondo con la forma exacta de las letras */
+  color: transparent; 
+}
+
+.lanzamiento__descripcion{
+  font-family: var(--fuente-cuerpo);
+  font-size: 1.7rem;
+  color:rgba(172, 170, 177, 0.7);
+  line-height: 2rem;
+  padding-bottom: 2rem;
+}
+
+.lanzamiento__botones{
+  display: flex;
+  gap: 2rem;
+}
+
+.lanzamiento__boton{
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(0 93 99);
+  letter-spacing: 1px;
+  padding: 1.2rem 2.5rem;  
+  background-image: linear-gradient(to bottom right, var(--color-primario), var(--color-primario_deg)); /* define el gradiente. Pero en lugar de aplicarlo como fondo del div, sera del texto */ 
+  border: 1px var(--color-primario) solid;
+  border-radius: 0.40rem;
+  cursor: pointer;
+}
+
+.lanzamiento__boton.lanzamiento__boton--secundario{
+  text-decoration: none;
+  font-size: 1.2rem;
+  background-image: none;
+  background-color: rgba(25, 25, 31, 0.89);
+  color: white;
+  border: 1px var(--color-neutral) solid;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* CONTROL+K+C */
